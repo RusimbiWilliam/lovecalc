@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GERERANYA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+
+
+        <div class="content">
+            <strong><p>choose which fruit can be eat while together</p></strong>
+
+<input id="myInput" type="text">
+
+<button onclick="myFunction()">consult</button><p id="demo"></p>
+            <img src="Premium Vector _ Valentine's day banner background with romantic couple.jpeg" alt=""> <p></p>
+            <div class="inputarea">
+                <h1>your names</h1>
+                <INput type="text" placeholder="izina ryawe" id="NameOne" onfocus="this.value=''">
+                <INput type="text" placeholder="izina rye" id="NameTwo" onfocus="this.value=''">
+            </div>
+            <a href="#" onclick="love()">GERERANYA</a>
+            <p id="print">percentage relationship</p>
+            <strong>COMMENT:</strong>
+            <p id="statement"></p>
+        </div>
+    </div>
+    <script>
+
+        function love(){
+            //name inputs
+                const name1 = document.getElementById("NameOne").value;
+                const name2 = document.getElementById("NameTwo").value;
+    // name langth
+                var name1Lenght = name1.length;
+                var name2Lenght = name2.length;
+    //all names together and number of characters that make up the string
+                var universal = name1Lenght + name2Lenght;
+    // spliting names into an array of characyers
+                var A = name1.split('');
+                var B = name2.split('');
+    // getting the intersection of characters
+                var intersection = A.filter((data) => B.includes(data));
+    //intersection length
+                var intersectionLength = intersection.length;
+    //number of universal characters minus intersection length
+                remainder = universal - intersectionLength;
+
+                if(name1.length<=2){
+                alert("Enter at least 3 characters");
+            }
+                if(name2.length<=2){
+                alert("Enter at least 3 characters");
+            }
+            else{
+    //defining what will be displayed as an output
+                const random = Math.floor((intersectionLength/universal)*100);
+                document.getElementById("print").innerHTML = name1 + " " + "and" + " " + name2 + " " + "are" + " " + random + "%" + "of relationship";
+                
+            }
+    // statements for comments
+            if(random<=50){
+                document.getElementById("statement").innerHTML = "Good Relationship";
+            }
+            else if(random>=51 || random<=100){
+                document.getElementById("statement").innerHTML = "Lovely relationship";
+            }
+        }
+
+        function myFunction() {
+  var text;
+  var fruits = document.getElementById("myInput").value;
+
+  switch(fruits) {
+    case "banana":
+      text = "Banana is good after meal!";
+    break;
+    case "orange":
+    text = "orange can be used to make juice.";
+    break;
+    case "apple":
+    text = "this can good while walking";
+    break;
+    case "pawpaw":
+    text = "this can also be good dessert";
+    break;
+    default:
+    text = "I have never heard of that fruit...";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+
+    </script>
+</body>
+</html>
